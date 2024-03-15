@@ -2,6 +2,7 @@ from ...utils import load_config
 from .openai_textgen import OpenAITextGenerator
 from .palm_textgen import PalmTextGenerator
 from .cohere_textgen import CohereTextGenerator
+from .vertexai_textgen import VertexaiTextGenerator
 import logging
 
 logger = logging.getLogger("llmx")
@@ -51,7 +52,7 @@ def llm(provider: str = None, **kwargs):
     if provider.lower() == "openai":
         return OpenAITextGenerator(**kwargs)
     elif provider.lower() == "palm":
-        return PalmTextGenerator(**kwargs)
+        return VertexaiTextGenerator(**kwargs)
     elif provider.lower() == "cohere":
         return CohereTextGenerator(**kwargs)
     elif provider.lower() == "hf":
